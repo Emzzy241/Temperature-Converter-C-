@@ -79,11 +79,11 @@ namespace TemperatureConverter.Models
 
 
 
-        public string KelConverterMethod()
-        {
-            int myDefaultConverter = 273;
+        // public string KelConverterMethod()
+        // {
+        //     int myDefaultConverter = 273;
 
-        }
+        // }
     }
 }
 
