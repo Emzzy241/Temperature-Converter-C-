@@ -1,10 +1,10 @@
 // This is the class  for the Conversion of a Kelvin Temperature into a Celsius Temperature
 
 // Remember, I need to import some things first off to ensure my C# code has a smooth flow 
-using System; 
+using System;
 // the above is not really needed yet in my code and thats why the color us faint
 
-using System.Collections.Generic;  
+using System.Collections.Generic;
 //the above using statement is very much needed in my code as it allows me to make use of C# Arrays, lists, and even dictionaries
 // If I had created a C# array, list or dictionary without this using statement I would have the error 
 // The type or namespace name 'List<>' could not be found (are you missing a using directive or an assembly reference?) [TemperatureConverter]csharp(CS0246)
@@ -26,6 +26,15 @@ namespace TemperatureConverter.Models
 
         // here is my C# field
         private int _convertsCelsiusToKelvin;
+        // after creating the private field, I now need a getter and setter to help me be able to access it
+        public int ConvertingCelsiusToKelvin
+        {
+            // By doing it this way; I am minizing the amount of code I'm writing and not writing getter and setter methods
+            get { return _convertsCelsiusToKelvin; }
+            set { _convertsCelsiusToKelvin = value; }
+
+        }
+
         private int _convertsKelvinToCelsius;
 
         // now my C# field has been written, remember these are private fields and private fields cannot be accessed directly, they need getters and setters to access them
@@ -33,21 +42,10 @@ namespace TemperatureConverter.Models
         // I would write properties for both my getter and setter instead
         // so the get and set will be written inside my C# property and here is how to write a C# property
 
-        /*
-        public int ConvertsCelsiusTempToKelvin
-        {
-            // this entirely is a C# property 
-            get { return _convertsCelsiusToKelvin; }
-            set { _convertsCelsiusToKelvin = value; }
-            
-        }
-            // I can choose to write in two lines or use the auto-implemented property in C# properties...
-            // and this enables me to write the 2 lines of code above just in 1 line, just like this:
-         */
 
-        public int ConvertsCelsiusTempToKelvin{ get; set; }
-
-        // for the second field now
+        // I can choose to write in two lines or use the auto-implemented property in C# properties...
+        // and this enables me to write the entire 4 lines of code above just in 1 line, just like this:
+        public int ConvertingKelvinBackToCelsius { get; set; }
 
         // Since I am carrying out multiple(2) things on my KelvinToCelsius class; I need a constructor
         // Or I can say, since I have multiple fields(2) now, I will be needing a constructor to join them together
@@ -57,6 +55,8 @@ namespace TemperatureConverter.Models
         // NOTE: I really tried to work with this method in my C#(shapetracker app) but I could not get it, I am hoping that I gey ot this time around
         // and that I am able to successfully write my C# UI method to handle it
         private static List<KelvinToCelsius> _instances = new List<KelvinToCelsius>();
+
+        // a getter-setter methid fir my 
 
         // NOW ITS TIME FOR MY CONSTRUCTOR
         // After adding my private fields(with an _privateFieldName which is the naming convention for private fields)
@@ -70,29 +70,58 @@ namespace TemperatureConverter.Models
 
         public KelvinToCelsius(int kelvinTemperature, int celsiusTemperature)
         {
-            _convertsCelsiusToKelvin = kelvinTemperature;
-            _convertsKelvinToCelsius = kelvinTemperature;
+
+            ConvertingCelsiusToKelvin = kelvinTemperature;
+            ConvertingKelvinBackToCelsius = celsiusTemperature;
+            _instances.Add(this); 
+            // the last part where I used the built-in "this" keyowrd was to add in my C# lists
+            // It is worthy to note that since I now have a getter-setter method(ConvertingCelsiusToKelvin, and ConvertingKelvinBackToCelsius)
+            // that helps to access my private field; I no not need to call my private-field in here again, I can easily call on the getter-setter methods I wrote to either
+            // get or set information for me.... All I have Just done here is called Encapsulation and it is one of the key-concepts 
+            // in OOP(object oriented programming); where you are able to protect my private fields at all cost and prevent my UI logic methods from having a direct access on my private field
 
         }
 
 
-
-
-
-        // public string KelConverterMethod()
-        // {
-        //     int myDefaultConverter = 273;
-
-        // }
-
-        // public string KelConverterMethod()
-        // {
-        //     int myDefaultConverter = 273;
-
-        // }
-
-        
     }
+}
+
+
+/*
+public int ConvertsCelsiusTempToKelvin
+{
+    // this entirely is a C# property 
+    get { return _convertsCelsiusToKelvin; }
+    set { _convertsCelsiusToKelvin = value; }
+
+}
+
+
+// for the second field now
+
+
+
+
+
+
+
+public string KelConverterMethod()
+{
+    if ()
+        int myDefaultConverter = 273;
+
+
+
+}
+
+// public string KelConverterMethod()
+// {
+//     int myDefaultConverter = 273;
+
+// }
+
+
+}
 }
 
 
@@ -100,7 +129,7 @@ namespace TemperatureConverter.Models
 HOW I DID IT WITH JAVASSCRIPT
 
 function add(degrees, kelvin){
-    return degrees + kelvin + "k";
+return degrees + kelvin + "k";
 }
 
 
@@ -108,16 +137,16 @@ function add(degrees, kelvin){
 
 // The userInterface Logic
 $(document).ready( function(){
-    $("#temp").submit( function(event){
-        event.preventDefault();
-        
-        const degrees = parseInt($("#degrees").val());
-        const kelvin = +273;
-        const output = add(degrees, kelvin);
+$("#temp").submit( function(event){
+event.preventDefault();
 
-        $(".output").html(output)
+const degrees = parseInt($("#degrees").val());
+const kelvin = +273;
+const output = add(degrees, kelvin);
 
-    })
+$(".output").html(output)
+
+})
 });
 
 
