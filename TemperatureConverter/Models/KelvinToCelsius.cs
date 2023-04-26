@@ -92,20 +92,18 @@ namespace TemperatureConverter.Models
 
         // Now its time to write a method that actually converts Kelvin to celsius
 
-        public int KelConverterMethod()
+        public int KelConverterMethod(int kelvintandardValue)
         {
-            int standardValue = 273;
+            // NOTE: a C# method must always return something otherwise it gives the "not all code paths return a value error"
 
-            if(ConvertingCelsiusToKelvin == 0)
+            if(kelvintandardValue < 0)
             {
-                .
+                throw new ArgumentException("Invalid temperature in kelvin");
             }
-            else if(ConvertingCelsiusToKelvin == 5)
-            {
-
-            }
+            
             else{
-
+                int celsiusValue = kelvintandardValue - 273;
+                return celsiusValue;
             }
         }
 
