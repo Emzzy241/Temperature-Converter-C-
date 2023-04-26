@@ -56,7 +56,15 @@ namespace TemperatureConverter.Models
         // and that I am able to successfully write my C# UI method to handle it
         private static List<KelvinToCelsius> _instances = new List<KelvinToCelsius>();
 
-        // a getter-setter methid fir my 
+        // a getter-setter methid for my lists private field
+
+        public List<KelvinToCelsius> ForMyListOfTemperature
+        {
+            // By doing it this way; I am minizing the amount of code I'm writing and not writing getter and setter methods
+            get { return _instances; }
+            set { _instances = value; }
+
+        }
 
         // NOW ITS TIME FOR MY CONSTRUCTOR
         // After adding my private fields(with an _privateFieldName which is the naming convention for private fields)
@@ -80,6 +88,25 @@ namespace TemperatureConverter.Models
             // get or set information for me.... All I have Just done here is called Encapsulation and it is one of the key-concepts 
             // in OOP(object oriented programming); where you are able to protect my private fields at all cost and prevent my UI logic methods from having a direct access on my private field
 
+        }
+
+        // Now its time to write a method that actually converts Kelvin to celsius
+
+        public int KelConverterMethod()
+        {
+            int standardValue = 273;
+
+            if(ConvertingCelsiusToKelvin == 0)
+            {
+                .
+            }
+            else if(ConvertingCelsiusToKelvin == 5)
+            {
+
+            }
+            else{
+
+            }
         }
 
 
