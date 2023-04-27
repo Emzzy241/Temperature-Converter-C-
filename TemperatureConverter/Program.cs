@@ -31,6 +31,9 @@ class Program{
             Console.WriteLine("Please enter in the kelvin value");
             string kelvinValue = Console.ReadLine();
 
+            // converting that string into a integer
+            int kelvinValueInt = int.Parse(kelvinValue);
+
 
 
         // The first UI logic method to write will be on picking up a Kelvin temperature and converting it to a 
@@ -40,7 +43,7 @@ class Program{
         {
             // the Convert To Temperature method here is from my Kelvin to tcelsius Temperature C# file
 
-            string result = kel.ConvertTemperature();
+            string result = kel.KelConverterMethod();
 
         }
 
