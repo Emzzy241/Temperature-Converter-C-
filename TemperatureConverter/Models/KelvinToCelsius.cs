@@ -102,8 +102,9 @@ namespace TemperatureConverter.Models
             }
             
             else{
-                int celsiusValue = kelvinStandardValue - 273;
-                return celsiusValue;
+                int kelvinTemp = - 273;
+                // int celsiusValue = kelvinStandardValue - 273;
+                return kelvinTemp;
             }
         }
 
