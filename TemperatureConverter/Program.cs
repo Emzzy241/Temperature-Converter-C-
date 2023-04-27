@@ -36,13 +36,13 @@ class Program{
         // The first UI logic method to write will be on picking up a Kelvin temperature and converting it to a 
         // celsius temperature 
 
-        // static void ConvertKelvinValueToCelsius(KelvinToCelsius kel)
-        // {
-        //     // the Convert To Temperature method here is from my Kelvin to tcelsius Temperature C# file
+        static void ConvertKelvinValueToCelsius(KelvinToCelsius kel)
+        {
+            // the Convert To Temperature method here is from my Kelvin to tcelsius Temperature C# file
 
-        //     string result = kel.ConvertTemperature();
+            string result = kel.ConvertTemperature();
 
-        // }
+        }
 
 
 
