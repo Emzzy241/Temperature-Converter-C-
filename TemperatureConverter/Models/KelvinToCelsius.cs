@@ -27,15 +27,17 @@ namespace TemperatureConverter.Models
         // here is my C# field
         private int _convertsCelsiusToKelvin;
         // after creating the private field, I now need a getter and setter to help me be able to access it
-        public int ConvertingCelsiusToKelvin
+        public double ConvertingCelsiusToKelvin
         {
+            get; set;
+            
             // By doing it this way; I am minizing the amount of code I'm writing and not writing getter and setter methods
-            get { return _convertsCelsiusToKelvin; }
-            set { _convertsCelsiusToKelvin = value; }
+            // get { return _convertsCelsiusToKelvin; }
+            // set { _convertsCelsiusToKelvin = value; }
 
         }
 
-        private int _convertsKelvinToCelsius;
+        private double _convertsKelvinToCelsius;
 
         // now my C# field has been written, remember these are private fields and private fields cannot be accessed directly, they need getters and setters to access them
         // And now I can choose to write out an entire GetFieldName() and SetFieldName() methods but I won't do that; 
@@ -45,7 +47,7 @@ namespace TemperatureConverter.Models
 
         // I can choose to write in two lines or use the auto-implemented property in C# properties...
         // and this enables me to write the entire 4 lines of code above just in 1 line, just like this:
-        public int ConvertingKelvinBackToCelsius { get; set; }
+        public double ConvertingKelvinToCelsius { get; set; }
 
         // Since I am carrying out multiple(2) things on my KelvinToCelsius class; I need a constructor
         // Or I can say, since I have multiple fields(2) now, I will be needing a constructor to join them together
@@ -76,14 +78,14 @@ namespace TemperatureConverter.Models
 
         // a constructor for my KelvinToCelsius temperature that can take in celsius temperature or kelvin temperature
 
-        public KelvinToCelsius(int kelvinTemperature, int celsiusTemperature)
+        public KelvinToCelsius(int kelvinTemperature, double celsiusTemperature)
         {
 
             ConvertingCelsiusToKelvin = kelvinTemperature;
-            ConvertingKelvinBackToCelsius = celsiusTemperature;
+            ConvertingKelvinToCelsius = celsiusTemperature;
             _instances.Add(this); 
             // the last part where I used the built-in "this" keyowrd was to add in my C# lists
-            // It is worthy to note that since I now have a getter-setter method(ConvertingCelsiusToKelvin, and ConvertingKelvinBackToCelsius)
+            // It is worthy to note that since I now have a getter-setter method(ConvertingCelsiusToKelvin, and ConvertingKelvinToCelsius)
             // that helps to access my private field; I no not need to call my private-field in here again, I can easily call on the getter-setter methods I wrote to either
             // get or set information for me.... All I have Just done here is called Encapsulation and it is one of the key-concepts 
             // in OOP(object oriented programming); where you are able to protect my private fields at all cost and prevent my UI logic methods from having a direct access on my private field
