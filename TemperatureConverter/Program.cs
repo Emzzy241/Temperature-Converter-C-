@@ -28,16 +28,38 @@ class Program
         }
         else if (userStarts == "K")
         {
-              Console.WriteLine("You selected the option for a conversion of Kelvin to Celsius");
-              Console.WriteLine();
+            Console.WriteLine("You selected the option for a conversion of Kelvin to Celsius");
+            Console.WriteLine("We'll help you convert a Kelvin Temperature into a celsius one");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Please enter in the kelvin value");
+            string kelvinValue = Console.ReadLine();
 
-            Console.WriteLine("Would you like to proceed('YES' or 'NO')");
-            string userProceed = Console.ReadLine().ToUpper();
+            // converting that string into a integer
 
-            if(userProceed == "YES")
-            {
-                ConvertKelvinValueToCelsius();
-            }
+            int kelvinValueInt = int.Parse(kelvinValue);
+
+            Console.WriteLine(kelvinValueInt);
+
+
+
+
+            // Console.WriteLine("Would you like to proceed('YES' or 'NO')");
+            // string userProceed = Console.ReadLine().ToUpper();
+
+            // if (userProceed == "YES")
+            // {
+            //     ConvertKelvinValueToCelsius();
+            // }
+            // else if (userProceed == "NO")
+            // {
+            //     Main();
+            // }
+            // else
+            // {
+            //     Console.WriteLine("Sorry, I didn't get that, lets try again");
+            //     Main();
+            // }
 
             // The first UI logic method to write will be on picking up a Kelvin temperature and converting it to a 
             // celsius temperature 
@@ -45,16 +67,9 @@ class Program
             static void ConvertKelvinValueToCelsius(KelvinToCelsius kel)
             {
 
-              
+
                 Console.WriteLine();
-                Console.WriteLine("Please enter in the kelvin value");
-                string kelvinValue = Console.ReadLine();
 
-                // converting that string into a integer
-
-                int kelvinValueInt = int.Parse(kelvinValue);
-
-                Console.WriteLine(kelvinValueInt);
 
 
                 // the Convert To Temperature method here is from my Kelvin to tcelsius Temperature C# file
