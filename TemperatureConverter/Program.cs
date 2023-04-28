@@ -147,28 +147,28 @@ class Program
                 Console.WriteLine("Please enter 'new' to convert a new kelvin temperature, enter 'get' to get all kelvin temperatures you've converted. To exit, enter X.");
                 string userContinue = Console.ReadLine().ToUpper();
                 
-                // switch (userContinue)
-                // {
-                //     case "NEW":
-                //         Main();
-                //         break;
+                switch (userContinue)
+                {
+                    case "NEW":
+                        Main();
+                        break;
 
-                //     case "GET":
-                //         // GetAllConvertedKelvins();
-                //         break;
-                //     case "X":
-                //         Console.WriteLine("Goodbye My dear User");
-                //         break;
+                    case "GET":
+                        // GetAllConvertedKelvins();
+                        break;
+                    case "X":
+                        Console.WriteLine("Goodbye My dear User");
+                        break;
 
                     
-                //     default:
-                //         Console.WriteLine("Sorry, I didn't get that; Lets try again");
-                //         Console.WriteLine();
-                //         Console.WriteLine();
-                //         Console.WriteLine();
-                //         Main();
-                //         break;
-                // }
+                    default:
+                        Console.WriteLine("Sorry, I didn't get that; Lets try again");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Main();
+                        break;
+                }
 
 
 
