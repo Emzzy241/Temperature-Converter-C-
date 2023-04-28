@@ -140,7 +140,7 @@ class Program
                 double result = finalKel.KelConverterMethod();
 
                 Console.WriteLine("--------------------------------");
-                Console.WriteLine($"Your result is {result}");
+                Console.WriteLine($"Your result is {result}C");
                 // tri.Add(result);
 
                 Console.WriteLine("--------------------------------");
