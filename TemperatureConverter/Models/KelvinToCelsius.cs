@@ -25,19 +25,26 @@ namespace TemperatureConverter.Models
         // later on I might be adding in a constructor though
 
         // here is my C# field
-        private int _convertsCelsiusToKelvin;
+        // but since I used C# auto-implemented property that helps us implement the functionality of a public field and private field in shorter syntax
+        // the auto-implemented property does multiple things in one line of code
+        // private double _convertsCelsiusToKelvin;
         // after creating the private field, I now need a getter and setter to help me be able to access it
-        public double ConvertingCelsiusToKelvin
-        {
-            get; set;
+        public double ConvertingCelsiusToKelvin { get; set; }
 
-            // By doing it this way; I am minizing the amount of code I'm writing and not writing getter and setter methods
+            // By doing it this way above; I am minizing the amount of code I'm writing and not writing getter and setter methods
             // get { return _convertsCelsiusToKelvin; }
             // set { _convertsCelsiusToKelvin = value; }
 
-        }
+        
 
-        private double _convertsKelvinToCelsius;
+        // commenting  out the private field because my auto-implemented C# property helps me achieve the same thing in few lines of code
+        // so what too me 6 lines of code will take me 1 line of code all thanks to the C# auto-implemented property
+        // private double _convertsKelvinToCelsius;
+        // public int ConvertingMyKelvinToCelsius
+        // {
+        //     get { return _convertsKelvinToCelsius; }
+        //     set { _convertsKelvinToCelsius = value; }
+        // }
 
         // now my C# field has been written, remember these are private fields and private fields cannot be accessed directly, they need getters and setters to access them
         // And now I can choose to write out an entire GetFieldName() and SetFieldName() methods but I won't do that; 
@@ -95,17 +102,17 @@ namespace TemperatureConverter.Models
 
         // Now its time to write a method that actually converts Kelvin to celsius
 
-        public double KelConverterMethod(double kelvinValue, double kelvinToCelsiusStandardValue)
+        public double KelConverterMethod()
         {
             // NOTE: a C# method must always return something otherwise it gives the "not all code paths return a value error"
 
-            if((kelvinToCelsiusStandardValue < 0) && (kelvinValue == -273.15))
+            if((ConvertingCelsiusToKelvin < 0) && (ConvertingKelvinToCelsius == -273.15))
             {
                 throw new ArgumentException("Invalid temperature in kelvin");
             }
             
             else{
-                double finalValue = kelvinValue + kelvinToCelsiusStandardValue;
+                double finalValue = ConvertingCelsiusToKelvin + ConvertingKelvinToCelsius;
                 return finalValue;
             }
         }
