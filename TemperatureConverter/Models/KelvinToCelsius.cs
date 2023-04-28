@@ -30,7 +30,7 @@ namespace TemperatureConverter.Models
         public double ConvertingCelsiusToKelvin
         {
             get; set;
-            
+
             // By doing it this way; I am minizing the amount of code I'm writing and not writing getter and setter methods
             // get { return _convertsCelsiusToKelvin; }
             // set { _convertsCelsiusToKelvin = value; }
@@ -48,6 +48,7 @@ namespace TemperatureConverter.Models
         // I can choose to write in two lines or use the auto-implemented property in C# properties...
         // and this enables me to write the entire 4 lines of code above just in 1 line, just like this:
         public double ConvertingKelvinToCelsius { get; set; }
+        
 
         // Since I am carrying out multiple(2) things on my KelvinToCelsius class; I need a constructor
         // Or I can say, since I have multiple fields(2) now, I will be needing a constructor to join them together
@@ -94,19 +95,18 @@ namespace TemperatureConverter.Models
 
         // Now its time to write a method that actually converts Kelvin to celsius
 
-        public int KelConverterMethod(int kelvinStandardValue)
+        public double KelConverterMethod(double kelvinValue, double kelvinToCelsiusStandardValue)
         {
             // NOTE: a C# method must always return something otherwise it gives the "not all code paths return a value error"
 
-            if(kelvinStandardValue < 0)
+            if((kelvinToCelsiusStandardValue < 0) && (kelvinValue == -273.15))
             {
                 throw new ArgumentException("Invalid temperature in kelvin");
             }
             
             else{
-                int kelvinTemp = - 273;
-                // int celsiusValue = kelvinStandardValue - 273;
-                return kelvinTemp;
+                double finalValue = kelvinValue + kelvinToCelsiusStandardValue;
+                return finalValue;
             }
         }
 

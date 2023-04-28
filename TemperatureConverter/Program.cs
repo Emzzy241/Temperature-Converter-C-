@@ -57,7 +57,7 @@ class Program
 
                 // here is where I used my getter to get user information on their kelvin value
                 // so they can choose to use my setter to set information on their kelvin value or not
-                Console.WriteLine($"You enterred {confirmKel.ConvertingKelvinToCelsius} for the kelvin value");
+                Console.WriteLine($"You enterred {confirmKel.ConvertingCelsiusToKelvin} for the kelvin value");
                 Console.WriteLine();
                 Console.WriteLine("Is that correct, enter 'yes' to continue or 'no' to change that value");
                 string userAns = Console.ReadLine().ToUpper();
@@ -67,6 +67,7 @@ class Program
                 {
                     case "YES":
                         Console.WriteLine("Great, Lets move on");
+                        ConvertKelvinValueToCelsius(confirmKel);
                         break;
                     case "NO":
                         Console.WriteLine("Lets fix up your kelvin value");
@@ -80,16 +81,16 @@ class Program
                         // saving it up; and I used confirmKel this time around because thats the kelvinToCelsius object I instantiated for this method
                         confirmKel.ConvertingKelvinToCelsius = newKelvinValueInt;
                         confirmKel.ConvertingCelsiusToKelvin = newCelsiusStandard;
-                       
+
 
                         // Now inside our method, we run our method again so it keeps confirming if the kelvin value of my user is correct
                         // what we did here is looping, we keep asking our users questions on whether a certain value is correct before they proceed
                         // Again, the concept of calling methodA inside methodA is known as looping
 
                         ConfirmOrEditKelvin(confirmKel);
-                        
+
                         break;
-                        // Always remember to add these break statements in a switch-case block so it knows you are donw with that case
+                    // Always remember to add these break statements in a switch-case block so it knows you are donw with that case
 
 
                     default:
@@ -125,52 +126,53 @@ class Program
             // The first UI logic method to write will be on picking up a Kelvin temperature and converting it to a 
             // celsius temperature 
 
-            static void ConvertKelvinValueToCelsius(KelvinToCelsius kel)
+            static void ConvertKelvinValueToCelsius(KelvinToCelsius finalKel)
             {
-                string result = kel.KelConverterMethod();
+                double userKelvinValue = finalKel.ConvertingCelsiusToKelvin;
+                double standardCelsiusValue = finalKel.ConvertingKelvinToCelsius;
+
+
+                double result = finalKel.KelConverterMethod(userKelvinValue, standardCelsiusValue);
+
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine($"Your result is {result}");
+                // tri.Add(result);
+
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("What's next?");
+                Console.WriteLine("Would you like to convert a new kelvin temperature (new)?");
+                Console.WriteLine();
+                Console.WriteLine("Please enter 'new' to convert a new kelvin temperature, enter 'get' to get all kelvin temperatures you've converted. To exit, enter X.");
+                string userContinue = Console.ReadLine().ToUpper();
+                
+                // switch (userContinue)
+                // {
+                //     case "NEW":
+                //         Main();
+                //         break;
+
+                //     case "GET":
+                //         // GetAllConvertedKelvins();
+                //         break;
+                //     case "X":
+                //         Console.WriteLine("Goodbye My dear User");
+                //         break;
+
+                    
+                //     default:
+                //         Console.WriteLine("Sorry, I didn't get that; Lets try again");
+                //         Console.WriteLine();
+                //         Console.WriteLine();
+                //         Console.WriteLine();
+                //         Main();
+                //         break;
+                // }
+
 
 
                 Console.WriteLine();
-
-
-
-                // the Convert To Temperature method here is from my Kelvin to tcelsius Temperature C# file
-
-
-                // if (kelvinValueInt < 0)
-                // {
-                //     throw new ArgumentException("Invalid temperature in kelvin");
-                // }
-
-                // else
-                // {
-                //     string result = kel.KelConverterMethod(kelvinValueInt);
-
-                //     int kelvinTemp = -273;
-                //     // int celsiusValue = kelvinStandardValue - 273;
-                //     // return kelvinTemp;
-                // }
-
-                // }
-
-                // public int KelConverterMethod(int kelvinStandardValue)
-                // {
-                //     // NOTE: a C# method must always return something otherwise it gives the "not all code paths return a value error"
-
-                //     if(kelvinStandardValue < 0)
-                //     {
-                //         throw new ArgumentException("Invalid temperature in kelvin");
-                //     }
-
-                //     else{
-                //         int kelvinTemp = - 273;
-                //         // int celsiusValue = kelvinStandardValue - 273;
-                //         return kelvinTemp;
-                //     }
-                // }
-
-
-
 
             }
 
