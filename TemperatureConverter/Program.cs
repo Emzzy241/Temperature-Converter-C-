@@ -18,7 +18,12 @@ class Program
         Console.WriteLine();
         Console.WriteLine();
         Console.WriteLine("Input 'F' to supply in a fahrenheit temperature and our app converts it to Celsius");
+        Console.WriteLine();
+        Console.WriteLine("Input 'K' to supply in a Celsius temperature and our app converts it to Fahrenheit");
+        Console.WriteLine();
         Console.WriteLine("Or input 'K' to supply in a Kelvin temperature and our app converts it to Celsius :)");
+        Console.WriteLine();
+        Console.WriteLine("Or input 'KK' to supply in a Celsius temperature and our app converts it to Kelvin :)");
 
         string userStarts = Console.ReadLine().ToUpper();
 
@@ -132,7 +137,7 @@ class Program
                 double standardCelsiusValue = finalKel.ConvertingKelvinToCelsius;
 
 
-                double result = finalKel.KelConverterMethod(userKelvinValue, standardCelsiusValue);
+                double result = finalKel.KelConverterMethod();
 
                 Console.WriteLine("--------------------------------");
                 Console.WriteLine($"Your result is {result}");
