@@ -41,11 +41,72 @@ class Program
 
             Console.WriteLine(kelvinValueInt);
 
+            double celsiusStandard = -273.15;
 
+            // instantiating a new KelvinToCelsius object so I can store user's value in it
+
+            KelvinToCelsius kel = new KelvinToCelsius(kelvinValueInt, celsiusStandard);
+
+            // running a method to confirm or edit the value my user enterred for kelvin
+
+            ConfirmOrEditKelvin(kel);
+
+            static void ConfirmOrEditKelvin(KelvinToCelsius confirmKel)
+            {
+                Console.WriteLine("Please confirm that you enterred the correct value for your triangle");
+
+                // here is where I used my getter to get user information on their kelvin value
+                // so they can choose to use my setter to set information on their kelvin value or not
+                Console.WriteLine($"You enterred {confirmKel.ConvertingKelvinToCelsius} for the kelvin value");
+                Console.WriteLine();
+                Console.WriteLine("Is that correct, enter 'yes' to continue or 'no' to change that value");
+                string userAns = Console.ReadLine().ToUpper();
+
+                // using a switch-case here
+                switch (userAns)
+                {
+                    case "YES":
+                        Console.WriteLine("Great, Lets move on");
+                        break;
+                    case "NO":
+                        Console.WriteLine("Lets fix up your kelvin value");
+                        Console.WriteLine("Enter a new value for your kelvin temperature");
+                        string newKelvinValue = Console.ReadLine();
+                        double newKelvinValueInt = double.Parse(newKelvinValue);
+
+                        double newCelsiusStandard = -273.15;
+
+                        // no need to reinstantiate an instnace of my KelvinTOCelsius class, I have a setter property in it that can achieve that for me
+                        // saving it up; and I used confirmKel this time around because thats the kelvinToCelsius object I instantiated for this method
+                        confirmKel.ConvertingKelvinToCelsius = newKelvinValueInt;
+                        confirmKel.ConvertingCelsiusToKelvin = newCelsiusStandard;
+                       
+
+                        // Now inside our method, we run our method again so it keeps confirming if the kelvin value of my user is correct
+                        // what we did here is looping, we keep asking our users questions on whether a certain value is correct before they proceed
+                        // Again, the concept of calling methodA inside methodA is known as looping
+
+                        ConfirmOrEditKelvin(confirmKel);
+                        
+                        break;
+                        // Always remember to add these break statements in a switch-case block so it knows you are donw with that case
+
+
+                    default:
+                        Console.WriteLine("Sorry I didnt get that");
+                        Main();
+                        break;
+                }
+
+            }
 
 
             // Console.WriteLine("Would you like to proceed('YES' or 'NO')");
             // string userProceed = Console.ReadLine().ToUpper();
+
+
+
+
 
             // if (userProceed == "YES")
             // {
@@ -66,6 +127,7 @@ class Program
 
             static void ConvertKelvinValueToCelsius(KelvinToCelsius kel)
             {
+                string result = kel.KelConverterMethod();
 
 
                 Console.WriteLine();
