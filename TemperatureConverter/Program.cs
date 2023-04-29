@@ -141,6 +141,7 @@ class Program
 
                 Console.WriteLine("--------------------------------");
                 Console.WriteLine($"Your result is {result}C");
+                Console.WriteLine("Yaya, you now have your Temperature value in Celsius")
                 // tri.Add(result);
 
                 Console.WriteLine("--------------------------------");
