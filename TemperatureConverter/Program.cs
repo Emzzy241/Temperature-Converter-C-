@@ -141,12 +141,12 @@ class Program
 
                 Console.WriteLine("--------------------------------");
                 Console.WriteLine($"Your result is {result}C");
-                Console.WriteLine("Yaya, you now have your Temperature value in Celsius")
                 // tri.Add(result);
 
                 Console.WriteLine("--------------------------------");
                 Console.WriteLine();
                 Console.WriteLine();
+                Console.WriteLine("Yay, you now have your Temperature value in Celsius");
                 Console.WriteLine("What's next?");
                 Console.WriteLine("Would you like to convert a new kelvin temperature (new)?");
                 Console.WriteLine();
